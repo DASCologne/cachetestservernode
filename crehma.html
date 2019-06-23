@@ -193,6 +193,7 @@
 
 		var ver_times = []
 		function startTest(){
+			ver_times_response = []
 			var numberOfValidTest = parseInt(document.getElementById("numberOfValidTest").value);
 			var numberOfInvalidTest = parseInt(document.getElementById("numberOfInvalidTest").value);
 			var x_response = document.getElementById("x_response").value;
@@ -225,7 +226,7 @@
 			alert("Finish");
 		}
 
-
+		var ver_times_response = []
 		function createRequest(uri,path,x_response,createSignedResponse,createSignedRequest){
 			var hashOfEmptyBody = "47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU"
 
@@ -247,6 +248,7 @@
 			}
 			
 			request.send();
+			ver_time_response.push(parseInt(request.getResponseHeader("Vertime")))
 
 			var ver = 0;
 			if(createSignedResponse == "true"){
