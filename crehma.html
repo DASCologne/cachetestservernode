@@ -194,6 +194,7 @@
 		var ver_times = []
 		function startTest(){
 			ver_times_response = []
+			ver_times = []
 			var numberOfValidTest = parseInt(document.getElementById("numberOfValidTest").value);
 			var numberOfInvalidTest = parseInt(document.getElementById("numberOfInvalidTest").value);
 			var x_response = document.getElementById("x_response").value;
@@ -222,7 +223,9 @@
 				
 			}
 			
-			console.log(totalNumberOfTimes/numberOfValidTest)
+			//console.log(totalNumberOfTimes/numberOfValidTest)
+			console.log("ver_times",ver_times.join(";"))
+			console.log("sig_resp_times",ver_times_response.join(";"))
 			alert("Finish");
 		}
 
@@ -280,7 +283,7 @@
 			};
 			tbs+=bodyHash;
 
-			console.log(tbs);
+			//console.log(tbs);
 			var sv = base64EncodeUrl(sjcl.codec.base64.fromBits(hmac.encrypt(tbs)))
 			return "sig=HMAC/SHA256,hash=SHA256,kid=jREHMAKey,tvp="+tvp+",addHeaders=null,sv="+sv;
 		}
