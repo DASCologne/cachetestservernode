@@ -259,7 +259,10 @@ function requestHandler(req, res) {
         }
         if(req.headers["create-signature"] == "true"){
             res.setHeader("Content-Length",body.length);
+            var start_verification = new Date().getTime()
             res.setHeader("Signature",crehma.signResponse(res, body, req.method, host+req.url));
+            var end_verification = new Date().getTime()
+            res.setHeader("Vertime", end_verification - start_verification)
         } else {
             var bodyETag = crypto.randomBytes(8).toString('hex');
             res.setHeader("ETag",bodyETag);
